@@ -1,0 +1,25 @@
+{
+  "name": "starlight",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "a": "nodemon index.js",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/react": "^3.5.0",
+    "@titaniumnetwork-dev/ultraviolet": "^2.0.0",
+    "@tomphttp/bare-server-node": "^2.0.1",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "astro": "^4.10.2",
+    "express": "^4.18.2",
+    "nodemon": "^3.1.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}

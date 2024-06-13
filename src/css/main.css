@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+* {
+  font-family: Inter;
+}
+
+:root {
+  --background: #3b047a;
+  --color: #fff;
+  --button: grey;
+  --border: rgb(59, 59, 59);
+}
+html {
+  height: 100%;
+}
+body {
+  font-family: Inter;
+  background-color: var(--background);
+  color: var(--color);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background: hsla(0, 0%, 0%, 1);
+
+  background: linear-gradient(
+    135deg,
+    hsla(0, 0%, 0%, 1) 17%,
+    hsla(268, 94%, 25%, 1) 100%
+  );
+
+  background: -moz-linear-gradient(
+    135deg,
+    hsla(0, 0%, 0%, 1) 17%,
+    hsla(268, 94%, 25%, 1) 100%
+  );
+
+  background: -webkit-linear-gradient(
+    135deg,
+    hsla(0, 0%, 0%, 1) 17%,
+    hsla(268, 94%, 25%, 1) 100%
+  );
+}
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+input {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background-color: var(--button);
+  color: var(--color);
+  font-size: 1rem;
+  border-radius: 15px;
+  text-align: center;
+  border: 1px solid var(--border);
+}
+input::placeholder {
+  color: var(--color);
+}
+#games-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.game {
+  width: 200px;
+  margin: 10px;
+  padding: 10px;
+  border: 0px solid var(--alt);
+  transition: 0.35s ease;
+  z-index: 10;
+  border-radius: 15px;
+}
+.game img {
+  min-width: 200px;
+  min-height: 200px;
+  border-radius: 40px;
+}
+
+.game:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}

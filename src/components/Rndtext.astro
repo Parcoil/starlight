@@ -1,0 +1,22 @@
+<div id="randomText"></div>
+
+  <script>
+
+    const randomTexts = [
+      "Hello, world!",
+      "This is a random text.",
+      "Coding is fun!",
+      "Stay curious.",
+      "Keep learning."
+    ];
+
+    function getRandomText() {
+      return randomTexts[Math.floor(Math.random() * randomTexts.length)];
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const randomTextElement = document.getElementById('randomText');
+      randomTextElement.textContent = getRandomText();
+    });
+
+  </script>
