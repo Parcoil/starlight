@@ -2,88 +2,50 @@ import { createBareServer } from "@tomphttp/bare-server-node";
 import { createServer } from "node:http";
 import { join, dirname } from "node:path";
 import { hostname } from "node:os";
-import { exec } from "child_process";
 import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
-
+import { uvPath } from "@titaniumnetwork-dev/ultraviolet";
+import expressLayouts from "express-ejs-layouts";
 const bare = createBareServer("/bare/");
-
-exec("npm run build", { timeout: 10000 }, (error, stdout, stderr) => {
-  if (error) {
-    console.error(`Error executing command: ${error}`);
-    return;
-  }
-
-  if (stderr) {
-    console.error(`Error output from command: ${stderr}`);
-    return;
-  }
-
-  // Process stdout if needed
-  console.log(`Build process stdout: ${stdout}`);
-});
 
 const app = express();
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const __filename = fileURLToPath(import.meta.url);
-const publicPath = join(__dirname, "dist");
-import { uvPath } from "@titaniumnetwork-dev/ultraviolet";
+const publicPath = join(__dirname, "public");
 
+// Set EJS as the view engine
+app.set("view engine", "ejs");
+app.set("views", join(__dirname, "public/views"));
+app.use(expressLayouts);
 app.use(express.static(publicPath));
-app.use("/uv/", express.static(uvPath));
+app.use("/stars/", express.static(uvPath));
 app.use("/", express.static(path.join(__dirname, "/")));
-app.use("/", express.static(path.join(__dirname, "/public")));
 
-app.get("/games", (req, res) => {
-  const filePath = path.join(__dirname, "games.json");
-  res.sendFile(filePath, (err) => {
+app.get("/", (req, res) => {
+  res.render("index", (err, html) => {
     if (err) {
-      console.error(err);
-      res.status(404).send("Games not found");
+      res.status(500).send("Internal Server Error");
+    } else {
+      res.send(html);
     }
   });
 });
-
-app.get("/ads.txt", (req, res) => {
-  res.sendFile(path.join(__dirname, "public/media/ads.txt"));
+app.get("/go", (req, res) => {
+  res.render("go", { layout: false }); // Render without layout
 });
-
-app.get("/discord", (req, res) => {
-  res.redirect("/uv/service/hvtrs8%2F-dksaopd%2Ccmm-arp");
-});
-
-app.get("/google", (req, res) => {
-  res.redirect("/uv/service/hvtrs8%2F-wuw%2Cgmoelg.aoo%2Fue%60hr");
-});
-
-app.get("/youtube", (req, res) => {
-  res.redirect("/uv/service/hvtrs8%2F-wuw%2Cymuvu%60e%2Ccmm-");
-});
-
-app.get("/tiktok", (req, res) => {
-  res.redirect("/uv/service/hvtrs8%2F-wuw%2Ctkkvoi.aoo%2Fgxrlmrg");
-});
-
-app.get("/x", (req, res) => {
-  res.redirect("/uv/service/hvtrs8%2F-tuivtgr%2Ccmm-");
-});
-
-app.get("/chess", (req, res) => {
-  res.redirect("/uv/service/hvtrs8%2F-wuw%2Ccjeqs%2Ccmm-");
-});
-
 app.get("/:page", (req, res) => {
   const page = req.params.page;
-  const filePath = path.join(__dirname, `public/${page}.html`);
-  res.sendFile(filePath, (err) => {
+  res.render(page, (err, html) => {
     if (err) {
-      if (err.code === "ENOENT") {
-        res.status(404).sendFile(path.join(__dirname, "public/404.html"));
+      if (err.message.includes("Failed to lookup view")) {
+        res.status(404).render("404");
       } else {
         res.status(500).send("Internal Server Error");
       }
+    } else {
+      res.send(html);
     }
   });
 });
@@ -112,13 +74,14 @@ if (isNaN(port)) port = 8080;
 
 server.on("listening", () => {
   const address = server.address();
-  console.log(`[+] Starting ✨Starlight...`);
+
+  console.log(`[+] Starting 💫 Starlight...`);
   console.log();
   console.log(`[+] Made by The Parcoil Network:`);
   console.log();
   console.warn(`[+] https://github.com/Parcoil/starlight`);
   console.log();
-  console.log(`[+] Lunaar Running on port ${address.port}`);
+  console.log(`[+] Starlight Running on port ${address.port}`);
   console.log();
 });
 
@@ -126,7 +89,7 @@ process.on("SIGINT", shutdown);
 process.on("SIGTERM", shutdown);
 
 function shutdown() {
-  console.log("[-] SIGTERM signal received: closing HTTP server");
+  console.log("SIGTERM signal received: closing HTTP server");
   server.close();
   bare.close();
   process.exit(0);

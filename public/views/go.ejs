@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Starlight</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      id="favicon"
+      href="/./assets/logo.png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.5.2/css/all.css"
+    />
+    <link rel="stylesheet" href="/./css/main.css" />
+    <script src="/./js/preload.js" defer></script>
+    <script src="/./stars/uv.bundle.js" defer></script>
+    <script src="/./stars/uv.config.js" defer></script>
+    <script src="/./stars/register-sw.js" defer></script>
+    <script src="/./stars/search.js" defer></script>
+    <script src="/./stars/index.js" defer></script>
+    <script src="/stars/uv.sw.js" defer></script>
+    <script src="/./js/main.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <div id="particles-js"></div>
+    <script>
+      var historyStack = [];
+      var currentIndex = -1;
+
+      window.onload = function () {
+        var url = sessionStorage.getItem("lpurl");
+        var rawurl = sessionStorage.getItem("rawurl");
+        var lp = document.getElementById("lp");
+        var search = document.getElementById("w-search");
+        lp.src = url;
+        search.value = rawurl;
+      };
+      function fullscreen() {
+        var lp = document.getElementById("lp");
+        lp.requestFullscreen();
+      }
+      function inspect() {
+        eruda.init();
+        eruda.show();
+      }
+      function reload() {
+        window.location.reload();
+      }
+      function back() {
+        var lp = document.getElementById("lp");
+        if (lp.contentWindow.history.length > 0) {
+          lp.contentWindow.history.back();
+        }
+      }
+
+      function forward() {
+        var lp = document.getElementById("lp");
+        if (lp.contentWindow.history.length > 0) {
+          lp.contentWindow.history.forward();
+        }
+      }
+    </script>
+    <script src="//cdn.jsdelivr.net/npm/eruda"></script>
+    <div class="lptop">
+      <div class="lpbuttons">
+        <button
+          onclick="fullscreen()"
+          class="lpbutton"
+          title="Fullscreens the page"
+        >
+          <i class="fa-solid fa-expand"></i>
+        </button>
+        <button
+          onclick="inspect()"
+          class="lpbutton"
+          title="Opens inspect element"
+        >
+          <i class="fa-solid fa-code"></i>
+        </button>
+        <button onclick="reload()" class="lpbutton" title="Reloads the page">
+          <i class="fa-regular fa-arrows-rotate"></i>
+        </button>
+      </div>
+      <form id="uv-form">
+        <input type="text" id="w-search" placeholder="Starlight" />
+      </form>
+      <input
+        id="uv-search-engine"
+        value="https://www.google.com/search?q=%s"
+        type="hidden"
+      />
+      <div class="lpbuttons">
+        <button onclick="back()" class="lpbutton" title="Fullscreens the page">
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <button
+          onclick="foward()"
+          class="lpbutton"
+          title="Opens inspect element"
+        >
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+        <button
+          onclick="window.location.href = '/./' "
+          class="lpbutton"
+          title="Reloads the page"
+        >
+          <i class="fa-solid fa-house"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="lpdiv">
+      <iframe id="lp"></iframe>
+    </div>
+    <div class="loadingtxt">
+      <h1>Loading | Starlight</h1>
+      <p>if this is taking too long refresh</p>
+    </div>
+    <style>
+      #w-search {
+        height: 9px;
+        font-size: 20px;
+      }
+    </style>
+  </body>
+</html>

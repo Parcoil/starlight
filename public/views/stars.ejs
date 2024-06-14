@@ -1,0 +1,76 @@
+<h1>apps go here :3</h1>
+<h1>Apps</h1>
+
+<div id="search-container">
+  <input type="text" id="search-bar" placeholder="Search apps..." />
+</div>
+
+<div id="apps-container" class="apps-container">
+  <!-- Apps will be loaded here by JavaScript -->
+</div>
+<script>
+  const server = localStorage.getItem("serverurl");
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const appsContainer = document.getElementById("apps-container");
+    const searchBar = document.getElementById("search-bar");
+
+    fetch("/json/apps.json")
+      .then((response) => response.json())
+      .then((apps) => {
+        // Function to render apps based on current search input
+        const renderApps = (filter = "") => {
+          appsContainer.innerHTML = ""; // Clear current apps
+
+          apps.forEach((app) => {
+            // Case-insensitive search by app name
+            if (app.name.toLowerCase().includes(filter.toLowerCase())) {
+              const appDiv = document.createElement("div");
+              appDiv.classList.add("app");
+
+              const appTitle = document.createElement("h2");
+              appTitle.textContent = app.name;
+
+              const appImage = document.createElement("img");
+              appImage.src = `${app.image}`;
+              appImage.alt = app.name;
+              appImage.title = app.name;
+              appImage.setAttribute("data-url", app.url);
+              appImage.setAttribute("data-name", app.name);
+
+              // Add event listener to handle click on app image
+              appImage.addEventListener("click", (e) => {
+                const appUrl = e.target.getAttribute("data-url");
+                const appName = e.target.getAttribute("data-name");
+                const lpUrl =
+                  window.__uv$config.prefix +
+                  window.__uv$config.encodeUrl(appUrl);
+                sessionStorage.setItem("lpurl", lpUrl);
+                sessionStorage.setItem("rawurl", `starlight://${appName}`);
+                window.location.href = "/./go/"; // Redirect to go page
+              });
+
+              appDiv.appendChild(appImage);
+              appDiv.appendChild(appTitle);
+              appsContainer.appendChild(appDiv);
+            }
+          });
+
+          if (appsContainer.children.length === 0) {
+            const noResultsMessage = document.createElement("p");
+            noResultsMessage.textContent = "No apps found.";
+            appsContainer.appendChild(noResultsMessage);
+          }
+        };
+
+        // Initial render of apps
+        renderApps();
+
+        // Event listener for real-time search
+        searchBar.addEventListener("input", () => {
+          renderApps(searchBar.value.trim());
+        });
+      })
+      .catch((error) => console.error("Error loading apps:", error));
+  });
+</script>

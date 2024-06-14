@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Starlight</title>
+
+    <link
+      rel="icon"
+      type="image/x-icon"
+      id="favicon"
+      href="/./assets/logo.png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.5.2/css/all.css"
+    />
+    <link rel="stylesheet" href="/./css/main.css" />
+    <script src="/./stars/uv.bundle.js" defer></script>
+    <script src="/./stars/uv.config.js" defer></script>
+    <script src="/./js/particles.js" defer></script>
+    <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="/./stars/register-sw.js" defer></script>
+    <script src="/./stars/search.js" defer></script>
+    <script src="/./stars/index.js" defer></script>
+    <script src="/./stars/uv.sw.js" defer></script>
+    <script src="/./js/main.js" defer></script>
+  </head>
+  <body>
+    <div class="nav">
+      <a href="/"><i class="fa-solid fa-house">&nbsp;</i>Home</a>
+      <a href="/math"><i class="fa-solid fa-gamepad">&nbsp;</i>Games</a>
+      <a href="/stars"><i class="fa-solid fa-grid-2">&nbsp;</i>Apps</a>
+      <a href="/settings"><i class="fa-solid fa-gear">&nbsp;</i>Settings</a>
+    </div>
+    <div id="particles-js"></div>
+    <main><%- body %></main>
+  </body>
+</html>

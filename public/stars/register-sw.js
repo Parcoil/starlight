@@ -2,7 +2,7 @@
 /**
  * Distributed with Ultraviolet and compatible with most configurations.
  */
-const stockSW = "/uv/sw.js";
+const stockSW = "/stars/sw.js";
 
 /**
  * List of hostnames that are allowed to run serviceworkers on http://
@@ -26,7 +26,7 @@ async function registerSW() {
 
   try {
     const registration = await navigator.serviceWorker.register(stockSW, {
-      scope: "/uv/",
+      scope: "/stars/",
     });
 
     console.log("Service Worker registered:", registration);

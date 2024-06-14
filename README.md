@@ -1,3 +1,0 @@
-# Starlight.
-
-## Ending internet censorship.

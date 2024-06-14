@@ -1,0 +1,48 @@
+<div class="card" style="width: 1100px; height: 720px">
+  <iframe id="gameFrame" width="100%" height="100%" frameborder="0"></iframe>
+  <h1 id="gameName"></h1>
+  <button
+    style="color: var(--color) !important"
+    title="Fullscreen Button"
+    onclick="toggleFullScreen()"
+  >
+    <i class="ti ti-maximize"></i>
+  </button>
+</div>
+<script>
+  const urlParams = new URLSearchParams(window.location.search);
+  const gameUrl = urlParams.get("star");
+  const server = localStorage.getItem("serverurl");
+
+  fetch("/json/games.json")
+    .then((response) => response.json())
+    .then((data) => {
+      const game = data.find((game) => game.url === gameUrl);
+      if (game) {
+        const gameNameElement = document.getElementById("gameName");
+        gameNameElement.textContent = game.name;
+
+        const gameFrame = document.getElementById("gameFrame");
+        gameFrame.src = `${server}/${gameUrl}/`;
+      } else {
+        console.error("Game not found");
+      }
+    })
+    .catch((error) => console.error("Error fetching game data:", error));
+
+  function toggleFullScreen() {
+    var iframe = document.getElementById("gameFrame");
+
+    if (!document.fullscreenElement) {
+      iframe.requestFullscreen().catch((err) => {
+        alert(
+          `Error attempting to enable full-screen mode: ${err.message} (${err.name})`
+        );
+      });
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      }
+    }
+  }
+</script>

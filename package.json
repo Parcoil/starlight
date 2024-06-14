@@ -1,27 +1,32 @@
 {
   "name": "starlight",
+  "version": "1.0.0",
+  "description": "Ending Internet censorship.",
   "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "a": "nodemon index.js",
-    "astro": "astro"
-  },
+  "main": "index.js",
   "dependencies": {
-    "@astrojs/react": "^3.5.0",
     "@titaniumnetwork-dev/ultraviolet": "^2.0.0",
     "@tomphttp/bare-server-node": "^2.0.1",
-    "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0",
-    "astro": "^4.10.2",
-    "astro-particles": "^2.10.0",
+    "ejs": "^3.1.10",
     "express": "^4.18.2",
-    "nodemon": "^3.1.3",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "tsparticles": "^3.4.0"
-  }
+    "express-ejs-layouts": "^2.5.1",
+    "nodemon": "^3.0.2"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js --ext *"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Parcoil/starlight.git"
+  },
+  "keywords": [
+    "proxy"
+  ],
+  "author": "Parcoil Network",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Parcoil/starlight/issues"
+  },
+  "homepage": "https://github.com/Parcoil/starlight#readme"
 }

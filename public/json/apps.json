@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Youtube",
+    "image": "https://t3.ftcdn.net/jpg/04/74/05/94/360_F_474059464_qldYuzxaUWEwNTtYBJ44VN89ARuFktHW.jpg",
+    "url": "https://www.youtube.com/",
+    "new": false
+  },
+  {
+    "name": "Google",
+    "image": "https://www.pngall.com/wp-content/uploads/13/Google-Logo-PNG-Image.png",
+    "url": "https://google.com",
+    "new": true
+  },
+  {
+    "name": "hianime",
+    "image": "https://pbs.twimg.com/profile_images/1762122001617965056/G-mvqfHC_400x400.jpg",
+    "url": "https://hianime.to",
+    "new": false
+  },
+  {
+    "name": "Poki",
+    "image": "https://pbs.twimg.com/profile_images/966625671849095168/V5JiKZ6x_400x400.jpg",
+    "url": "https://poki.com",
+    "new": false
+  },
+  {
+    "name": "Visual Studio Code",
+    "image": "https://yt3.googleusercontent.com/_q52i8bUAEvcb7JR4e-eNTv23y2A_wg5sCz0NC0GrGtcw1CRMWJSOPVHUDh_bngD0q4gMvVeoA=s900-c-k-c0x00ffffff-no-rj",
+    "url": "https://vscode.dev",
+    "new": false
+  },
+  {
+    "name": "Now.gg",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQq5Jt3fdnYDxAmloV4l7ughwQnOihmT8gpOQ&s",
+    "url": "https://nowgg.nl",
+    "new": false
+  },
+  {
+    "name": "Crazy Games",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Crazygames_jpg_logo.jpg",
+    "url": "https://www.crazygames.com",
+    "new": false
+  },
+  {
+    "name": "X",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/X_logo.jpg/1200px-X_logo.jpg",
+    "url": "https://x.com",
+    "new": false
+  },
+  {
+    "name": "Y8",
+    "image": "https://avatars.githubusercontent.com/u/32312068?s=280&v=4",
+    "url": "https://www.y8.com",
+    "new": false
+  },
+  {
+    "name": "Chess.com",
+    "image": "https://avatars.githubusercontent.com/u/577023?s=280&v=4",
+    "url": "https://chess.com",
+    "new": false
+  }
+]

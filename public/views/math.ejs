@@ -1,0 +1,65 @@
+<!-- <h1>games go here :3</h1> -->
+<h1>Games</h1>
+<div id="search-container">
+  <input type="text" id="search-bar" placeholder="Search games..." />
+</div>
+<div id="games-container" class="games-container">
+  <!-- Games will be loaded here by JavaScript -->
+</div>
+<script>
+  const server = localStorage.getItem("serverurl");
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const gamesContainer = document.getElementById("games-container");
+    const searchBar = document.getElementById("search-bar");
+
+    fetch("/json/games.json")
+      .then((response) => response.json())
+      .then((games) => {
+        // Function to render games based on current search input
+        const renderGames = (filter = "") => {
+          gamesContainer.innerHTML = ""; // Clear current games
+
+          games.forEach((game) => {
+            // Case-insensitive search by game name
+            if (game.name.toLowerCase().includes(filter.toLowerCase())) {
+              const gameDiv = document.createElement("div");
+              gameDiv.classList.add("game");
+
+              const gameTitle = document.createElement("h2");
+              gameTitle.textContent = game.name;
+
+              const gameImage = document.createElement("img");
+              gameImage.src = `${server}/${game.url}/${game.image}`;
+              gameImage.alt = game.name;
+              gameImage.title = game.name;
+
+              // Add event listener to redirect to game URL on image click
+              gameDiv.addEventListener("click", () => {
+                window.location.href = `/view?star=${game.url}`; // Redirect to game URL
+              });
+
+              gameDiv.appendChild(gameImage);
+              gameDiv.appendChild(gameTitle);
+              gamesContainer.appendChild(gameDiv);
+            }
+          });
+
+          if (gamesContainer.children.length === 0) {
+            const noResultsMessage = document.createElement("p");
+            noResultsMessage.textContent = "No games found.";
+            gamesContainer.appendChild(noResultsMessage);
+          }
+        };
+
+        // Initial render of games
+        renderGames();
+
+        // Event listener for real-time search
+        searchBar.addEventListener("input", () => {
+          renderGames(searchBar.value.trim());
+        });
+      })
+      .catch((error) => console.error("Error loading games:", error));
+  });
+</script>
