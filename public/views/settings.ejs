@@ -1,12 +1,14 @@
 <div style="display: flex; flex-direction: row; gap: 20px; flex-wrap: wrap">
   <div class="card">
     <h1>Themes</h1>
+    <p>Changes the theme of the website</p>
     <button onclick="setTheme('default')">Default Theme</button>
     <button onclick="setTheme('oled')">Oled Theme</button>
     <button onclick="setTheme('red')">Red Theme</button>
   </div>
-  <div class="setting-card card">
+  <div class="card">
     <h1>Tab Cloak</h1>
+    <p>Changes tab title and icon</p>
     <div>
       <select id="presetDropdown" onchange="applyPreset()">
         <option value="default">Default</option>
@@ -18,6 +20,12 @@
       </select>
     </div>
   </div>
+  <div class="card">
+    <h1>Reset Settings</h1>
+    <p>Resets all settings to default</p>
+    <button onclick="resetSettings()">Reset Settings</button>
+  </div>
+
   <script>
     // Function to set the theme dynamically
     function setTheme(theme) {
@@ -36,6 +44,12 @@
       // Apply saved or default theme
       setTheme(savedTheme);
     };
+    function resetSettings() {
+      localStorage.clear();
+      sessionStorage.clear();
+      alert("settings reset");
+      window.location.reload();
+    }
   </script>
 </div>
 <div class="footer">
@@ -43,4 +57,5 @@
   ><a style="font-weight: 700" class="link" href="https://dsc.gg/parcoil"
     >parcoil network</a
   >
+  <a>v1.0.0</a>
 </div>
