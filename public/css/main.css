@@ -1,9 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
-
+@import url("themes.css");
 :root {
   --background: black;
   --color: white;
   --alt: grey;
+  --coilui-primary: #007bff;
 }
 * {
   font-family: "Inter", sans-serif;
@@ -58,6 +59,12 @@ main {
   height: fit-content;
   width: fit-content;
   overflow: hidden;
+  gap: 5px;
+  border-radius: 10px;
+  min-width: 200px;
+  min-height: 200px;
+  max-width: 200px;
+  max-height: 200px;
 }
 input {
   padding: 15px;
@@ -84,6 +91,28 @@ input {
 input:focus {
   border-radius: 15px;
 }
+/* from lunaar */
+select {
+  padding: 20px;
+  border-radius: 5px;
+  background: var(--background);
+  color: var(--textcolor);
+  font-size: 20px;
+  border: 0px;
+  outline: none;
+  border: 1px solid var(--alt);
+  font-family: var(--font);
+  font-weight: 900;
+  text-align: center;
+  border-radius: 15px;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIwIiBoZWlnaHQ9IjUxMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KIDwhLS0hRm9udCBBd2Vzb21lIEZyZWUgNi41LjEgYnkgQGZvbnRhd2Vzb21lIC0gaHR0cHM6Ly9mb250YXdlc29tZS5jb20gTGljZW5zZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tL2xpY2Vuc2UvZnJlZSBDb3B5cmlnaHQgMjAyNCBGb250aWNvbnMsIEluYy4tLT4KCiA8Zz4KICA8dGl0bGU+TGF5ZXIgMTwvdGl0bGU+CiAgPHBhdGggZmlsbD0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIwIiBpZD0ic3ZnXzEiIGQ9Im0xMzcuNCwzNzQuNmMxMi41LDEyLjUgMzIuOCwxMi41IDQ1LjMsMGwxMjgsLTEyOGM5LjIsLTkuMiAxMS45LC0yMi45IDYuOSwtMzQuOXMtMTYuNiwtMTkuOCAtMjkuNiwtMTkuOGwtMjU2LDAuMWMtMTIuOSwwIC0yNC42LDcuOCAtMjkuNiwxOS44cy0yLjIsMjUuNyA2LjksMzQuOWwxMjgsMTI4bDAuMSwtMC4xeiIvPgogIDxwYXRoIGZpbGw9IiNmZmYiIHN0cm9rZT0iIzAwMCIgb3BhY2l0eT0iTmFOIiBkPSJtNzEzLjk0NTAzLDk1LjgzNDkxIiBpZD0ic3ZnXzIiLz4KIDwvZz4KPC9zdmc+");
+  background-repeat: no-repeat;
+  background-position-x: 95%;
+  background-position-y: 19px;
+  background-size: 10px;
+}
 button {
   border: 1px solid var(--alt);
   border-radius: 10px;
@@ -105,6 +134,23 @@ button:active {
   height: 100vh;
   width: 100vw;
   position: fixed;
+}
+.footer {
+  margin: 10px auto;
+  bottom: 0;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.footer a {
+  text-decoration: none;
+  color: ;
+}
+.link {
+  color: var(--coilui-primary);
 }
 .lpbutton {
   outline: none;
@@ -129,7 +175,7 @@ button:active {
 }
 .fa-solid,
 .fa-regular {
-  color: white !important;
+  color: var(--color) !important;
 }
 .game,
 .app {

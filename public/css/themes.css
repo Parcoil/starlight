@@ -1,3 +1,29 @@
 :root {
   --background-filter: blur(3px) brightness(80%);
 }
+/* Default theme */
+body[theme="default"] {
+  --background-filter: blur(3px) brightness(50%);
+  --background: #111111;
+  --alt: rgba(255, 255, 255, 0.5);
+  --button: #777777;
+  --textcolor: #eeeeee;
+}
+
+/* Dark theme */
+body[theme="oled"] {
+  --background-filter: blur(3px) brightness(50%);
+  --background: #000000;
+  --alt: rgba(255, 255, 255, 0.5);
+  --button: #777777;
+  --textcolor: #eeeeee;
+}
+
+/* Light theme */
+body[theme="red"] {
+  --background-filter: blur(3px) brightness(100%);
+  --background: #880000;
+  --alt: rgb(49, 0, 0);
+  --button: #cccccc;
+  --color: #ffffff;
+}

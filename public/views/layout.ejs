@@ -35,5 +35,84 @@
     </div>
     <div id="particles-js"></div>
     <main><%- body %></main>
+    <script>
+      function setTheme(theme) {
+        document.body.setAttribute("theme", theme);
+        // Save theme preference to localStorage
+        localStorage.setItem("theme", theme);
+      }
+
+      window.onload = function () {
+        let savedTheme = localStorage.getItem("theme");
+        if (!savedTheme) {
+          savedTheme = "default"; // Set default theme if no theme is saved
+          localStorage.setItem("theme", savedTheme); // Store default theme
+          console.log(savedTheme);
+        }
+        // Apply saved or default theme
+        setTheme(savedTheme);
+        console.log(
+          "%c[ %cStarlight%c ] %cTheme loaded",
+          "font-weight: bold; color: white; font-size: 20px;",
+          "font-weight: bold; color: black; font-size: 20px;",
+          "font-weight: normal; font-size: 20px;",
+          "font-weight: normal; font-size: 20px;"
+        );
+
+        loadSavedPreset();
+      };
+
+      function applyPreset() {
+        var dropdown = document.getElementById("presetDropdown");
+        if (window.location.href.includes("settings")) {
+          var selectedPreset = dropdown.value;
+        }
+        var title = "image.png";
+        var faviconUrl = "/assets/logo.png";
+
+        var presets = {
+          default: { title: "Starlight", favicon: "/assets/logo.png" },
+          preset1: {
+            title: "Google Drive",
+            favicon: "/assets/cloaks/GoogleDrive.ico",
+          },
+          preset2: { title: "Gmail", favicon: "/assets/cloaks/Gmail.ico" },
+          preset3: {
+            title: "Google Search",
+            favicon: "/assets/cloaks/Google Search.ico",
+          },
+          preset4: { title: "Zoom", favicon: "/assets/cloaks/Zoom.ico" },
+          preset5: { title: "Meet", favicon: "/assets/cloaks/Meet.ico" },
+        };
+
+        if (presets[selectedPreset]) {
+          title = presets[selectedPreset].title;
+          faviconUrl = presets[selectedPreset].favicon;
+        }
+
+        document.title = title;
+
+        var favicon = document.querySelector('link[rel="icon"]');
+        if (!favicon) {
+          favicon = document.createElement("link");
+          favicon.setAttribute("rel", "icon");
+          document.head.appendChild(favicon);
+        }
+        favicon.href = faviconUrl;
+
+        localStorage.setItem("selectedPreset", selectedPreset);
+      }
+
+      function loadSavedPreset() {
+        var selectedPreset = localStorage.getItem("selectedPreset");
+        if (selectedPreset) {
+          var dropdown = document.getElementById("presetDropdown");
+          if (window.location.href.includes("settings")) {
+            dropdown.value = selectedPreset;
+          }
+          applyPreset();
+        }
+      }
+    </script>
   </body>
 </html>
