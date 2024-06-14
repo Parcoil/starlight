@@ -1,7 +1,7 @@
 ---
 import '@/css/main.css';
 const title = Astro.props;
-
+import PC from './PC.astro';
 ---
 
 <html lang="en">
@@ -20,7 +20,7 @@ const title = Astro.props;
 	</head>
 	<body>
 		<main>
-		
+		<PC/>
          <slot/>
         </main>
 		<script src="/src/js/main.js"></script>
