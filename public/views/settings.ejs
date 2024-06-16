@@ -12,7 +12,7 @@
     <div>
       <select id="presetDropdown" onchange="applyPreset()">
         <option value="default">Default</option>
-        <option value="preset1">Google Drive</option>
+        <option value="preset1">GoogleDrive</option>
         <option value="preset2">Gmail</option>
         <option value="preset3">Google Search</option>
         <option value="preset4">Zoom</option>
@@ -27,27 +27,47 @@
   </div>
 
   <script>
-    // Function to set the theme dynamically
     function setTheme(theme) {
       document.body.setAttribute("theme", theme);
-      // Save theme preference to localStorage
+
       localStorage.setItem("theme", theme);
     }
 
-    // Function to load saved theme or set default theme on page load
     window.onload = function () {
       let savedTheme = localStorage.getItem("theme");
       if (!savedTheme) {
-        savedTheme = "default"; // Set default theme if no theme is saved
-        localStorage.setItem("theme", savedTheme); // Store default theme
+        savedTheme = "default";
+        localStorage.setItem("theme", savedTheme);
       }
-      // Apply saved or default theme
+
       setTheme(savedTheme);
     };
+  </script>
+  <script>
+    function createBlank() {
+      win = window.open();
+      win.document.body.style.margin = "0";
+      win.document.body.style.height = "100vh";
+      var iframe = win.document.createElement("iframe");
+      iframe.style.border = "none";
+      iframe.style.width = "100%";
+      iframe.style.height = "100%";
+      iframe.style.margin = "0";
+      iframe.referrerpolicy = "no-referrer";
+      iframe.allow = "fullscreen";
+      iframe.src = location.origin;
+      win.document.body.appendChild(iframe);
+      window.location.href =
+        "https://www.google.com/search?q=what+day+is+today";
+    }
+  </script>
+  <script>
     function resetSettings() {
       localStorage.clear();
+
       sessionStorage.clear();
-      alert("settings reset");
+
+      alert("All settings have been reset.");
       window.location.reload();
     }
   </script>

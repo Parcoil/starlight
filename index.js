@@ -15,7 +15,6 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const __filename = fileURLToPath(import.meta.url);
 const publicPath = join(__dirname, "public");
 
-// Set EJS as the view engine
 app.set("view engine", "ejs");
 app.set("views", join(__dirname, "public/views"));
 app.use(expressLayouts);
@@ -33,7 +32,7 @@ app.get("/", (req, res) => {
   });
 });
 app.get("/go", (req, res) => {
-  res.render("go", { layout: false }); // Render without layout
+  res.render("go", { layout: false });
 });
 app.get("/:page", (req, res) => {
   const page = req.params.page;
