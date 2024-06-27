@@ -1,0 +1,30 @@
+<div style="display: flex; flex-direction: row; gap: 20px; flex-wrap: wrap">
+  <div class="card">
+    <h1>Info</h1>
+
+    <h2>Developers:</h2>
+    <div class="devs">
+      <a href="https://dsc.gg/parcoil">Dogecraft</a>
+      <a href="https://dsc.gg/parcoil">Wavybacon</a>
+    </div>
+    <p style="text-align: center; margin-top: 10px">
+      Created by The Parcoil Network
+    </p>
+    <p id="version" style="text-align: center; margin: 0"></p>
+    <script>
+      fetch("../package.json")
+        .then((response) => response.json())
+        .then((data) => {
+          const versionElement = document.getElementById("version");
+          versionElement.textContent = `Starlight ${data.version} Stable`;
+        })
+        .catch((error) => console.error("Error fetching the version:", error));
+    </script>
+  </div>
+</div>
+<div class="footer">
+  <a style="font-weight: 700">a site by </a
+  ><a style="font-weight: 700" class="link" href="https://dsc.gg/parcoil"
+    >parcoil network</a
+  >
+</div>

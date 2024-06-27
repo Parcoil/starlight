@@ -14,7 +14,7 @@ body[theme="default"] {
 body[theme="oled"] {
   --background-filter: blur(3px) brightness(50%);
   --background: #000000;
-  --alt: rgba(255, 255, 255, 0.5);
+  --alt: rgb(22, 22, 22);
   --button: #777777;
   --textcolor: #eeeeee;
 }
@@ -26,4 +26,13 @@ body[theme="red"] {
   --alt: rgb(49, 0, 0);
   --button: #cccccc;
   --color: #ffffff;
+}
+body[theme="blue"] {
+  /* transition: all 0.6s; */
+  --background-filter: blur(3px) brightness(80%);
+  --background: #001f54;
+  --color: #fefcfb;
+  --button: #034078;
+  --alt: rgb(0, 72, 180);
+  --border: var(--button);
 }
