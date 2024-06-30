@@ -2,7 +2,9 @@
 <img src="/public/assets/logo.png" width="100px" height="100px">
   <h1>Starlight.</h1>
   <p>Ending internet censorship.</p>
+  <p>The finest proxy.</p>
 </div>
+
 
 # Deploy
 
