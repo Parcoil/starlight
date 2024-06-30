@@ -18,7 +18,6 @@
     <link rel="stylesheet" href="/./css/main.css" />
     <script src="/./stars/uv.bundle.js" defer></script>
     <script src="/./stars/uv.config.js" defer></script>
-
     <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="/./stars/register-sw.js" defer></script>
     <script src="/./stars/search.js" defer></script>
@@ -37,6 +36,33 @@
     </div>
     <div id="particles-js"></div>
     <main><%- body %></main>
-    <script></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const activePage = window.location.pathname;
+        const navLinks = document.querySelectorAll(".nav a");
+
+        // Function to set active link
+        function setActiveLink() {
+          navLinks.forEach((link) => {
+            const linkPath = link.getAttribute("href");
+
+            if (
+              (activePage === "/" && linkPath === "/") ||
+              (activePage.startsWith(linkPath) && linkPath !== "/")
+            ) {
+              link.classList.add("active");
+            } else {
+              link.classList.remove("active");
+            }
+          });
+        }
+
+        // Initial call to set active link
+        setActiveLink();
+
+        // Event listener for hash changes (for single page applications)
+        window.addEventListener("hashchange", setActiveLink);
+      });
+    </script>
   </body>
 </html>

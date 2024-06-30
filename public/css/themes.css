@@ -5,7 +5,7 @@
 body[theme="default"] {
   --background-filter: blur(3px) brightness(50%);
   --background: #111111;
-  --alt: rgba(255, 255, 255, 0.5);
+  --alt: rgba(255, 255, 255, 0.322);
   --button: #777777;
   --textcolor: #eeeeee;
 }

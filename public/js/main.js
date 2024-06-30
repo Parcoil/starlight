@@ -23,3 +23,20 @@ function createBlank() {
 
   window.location.href = "https://www.google.com/search?q=what+day+is+today";
 }
+function displayCurrentTime() {
+  const date = new Date();
+  let hours = date.getHours();
+  const minutes = date.getMinutes();
+  const period = hours >= 12 ? "PM" : "AM";
+
+  hours = hours % 12;
+  hours = hours ? hours : 12;
+
+  const formattedTime =
+    hours + ":" + (minutes < 10 ? "0" + minutes : minutes) + period;
+
+  document.getElementById("current-time").textContent = formattedTime;
+}
+
+displayCurrentTime();
+setInterval(displayCurrentTime, 1000);

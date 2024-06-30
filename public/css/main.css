@@ -39,8 +39,18 @@ p {
   text-decoration: none;
   color: var(--color);
   font-weight: 600;
+  transition: 0.5s;
+  padding: 5px;
+  border-radius: 10px;
 }
-main {
+.nav a:hover {
+  transform: scale(0.9);
+}
+.active {
+  background-color: var(--alt);
+}
+main,
+.homepage {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -288,4 +298,7 @@ button[type="submit"] {
   left: 0;
   font-size: 30px;
   padding: 10px;
+}
+.homepage {
+  overflow: hidden;
 }
