@@ -25,6 +25,7 @@ body[theme="red"] {
   --background: #880000;
   --alt: rgb(49, 0, 0);
   --button: #cccccc;
+  --textcolor: #eeeeee;
   --color: #ffffff;
   --border: var(--button);
 }
@@ -34,6 +35,7 @@ body[theme="blue"] {
   --background: #001f54;
   --color: #fefcfb;
   --button: #034078;
+  --textcolor: #eeeeee;
   --alt: rgb(0, 72, 180);
   --border: var(--button);
 }

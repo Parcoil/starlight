@@ -8,6 +8,7 @@
 }
 * {
   font-family: "Inter", sans-serif;
+  color: var(--textcolor);
 }
 body {
   font-family: "Inter", sans-serif;
@@ -31,6 +32,8 @@ body {
   text-transform: uppercase;
   color: var(--color);
   border-bottom: 1px solid var(--alt);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 p {
   margin-top: 0;
@@ -307,4 +310,11 @@ button[type="submit"] {
 }
 .homepage {
   overflow: hidden;
+}
+#current-time {
+  display: flex;
+  position: fixed;
+  right: 0;
+  margin-right: 20px;
+  font-weight: 600;
 }
