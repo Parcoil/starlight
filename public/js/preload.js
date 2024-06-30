@@ -14,7 +14,6 @@ function loadScript(src, onload) {
   script.onload = onload;
   document.head.appendChild(script);
 }
-console.clear();
 if (!localStorage.getItem("hasVisited")) {
   localStorage.setItem("hasVisited", true);
 

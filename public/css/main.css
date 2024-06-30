@@ -107,8 +107,14 @@ input {
   width: 140px;
   font-family: var(--font);
 }
+.input::placeholder {
+  transition: 0.5s;
+}
 .input:focus {
   width: 210px;
+}
+.input:focus::placeholder {
+  color: var(--color);
 }
 .search {
   padding: 12px;
