@@ -26,6 +26,7 @@ body[theme="red"] {
   --alt: rgb(49, 0, 0);
   --button: #cccccc;
   --color: #ffffff;
+  --border: var(--button);
 }
 body[theme="blue"] {
   /* transition: all 0.6s; */

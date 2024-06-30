@@ -94,11 +94,11 @@ input {
   outline: none;
   border: none;
   color: var(--color);
-  width: 130px;
+  width: 140px;
   font-family: var(--font);
 }
 .input:focus {
-  width: 200px;
+  width: 210px;
 }
 .search {
   padding: 12px;
@@ -131,7 +131,7 @@ select {
   font-size: 20px;
   border: 0px;
   outline: none;
-  border: 1px solid var(--alt);
+  border: 1px solid var(--button);
   font-family: var(--font);
   font-weight: 900;
   text-align: center;
@@ -145,7 +145,7 @@ select {
   background-size: 10px;
 }
 .button {
-  border: 1px solid var(--alt);
+  border: 1px solid var(--button);
   border-radius: 10px;
   padding: 10px;
   background-color: var(--background);
@@ -263,4 +263,29 @@ button[type="submit"] {
   border: none;
   color: var(--color);
   font-size: 24px;
+}
+.settingscontiner {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 30px;
+}
+.devpfp {
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
+.dev {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.github {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  font-size: 30px;
+  padding: 10px;
 }

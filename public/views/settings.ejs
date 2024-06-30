@@ -1,4 +1,4 @@
-<div style="display: flex; flex-direction: row; gap: 20px; flex-wrap: wrap">
+<div class="settingscontiner">
   <div class="card">
     <h1>Themes</h1>
     <p>Changes the theme of the website</p>
@@ -10,6 +10,11 @@
     </button>
   </div>
   <div class="card">
+    <h1>About:blank</h1>
+    <p>Cloaks your tab with about blank</p>
+    <button class="button" onclick="createBlank()">Activate</button>
+  </div>
+  <!-- <div class="card">
     <h1>Tab Cloak</h1>
     <p>Changes tab title and icon</p>
     <div>
@@ -22,6 +27,22 @@
         <option value="preset5">Meet</option>
       </select>
     </div>
+  </div> -->
+  <div class="card">
+    <h1>Search Engine</h1>
+    <p>Changes the search engine</p>
+    <select id="searchenddrop" onchange="setSe()">
+      <option value="google">Google</option>
+      <option value="bing">Bing</option>
+      <option value="brave">Brave</option>
+      <option value="ddg">DuckDuckGo</option>
+      <option value="youtube">Youtube</option>
+    </select>
+  </div>
+  <div class="card">
+    <h1>Particles</h1>
+    <p>Toggles Particles on the site</p>
+    <button class="button" onclick="toggleParticles()">Toggle</button>
   </div>
   <div class="card">
     <h1>Reset Settings</h1>
@@ -46,24 +67,7 @@
       setTheme(savedTheme);
     };
   </script> -->
-  <script>
-    function createBlank() {
-      win = window.open();
-      win.document.body.style.margin = "0";
-      win.document.body.style.height = "100vh";
-      var iframe = win.document.createElement("iframe");
-      iframe.style.border = "none";
-      iframe.style.width = "100%";
-      iframe.style.height = "100%";
-      iframe.style.margin = "0";
-      iframe.referrerpolicy = "no-referrer";
-      iframe.allow = "fullscreen";
-      iframe.src = location.origin;
-      win.document.body.appendChild(iframe);
-      window.location.href =
-        "https://www.google.com/search?q=what+day+is+today";
-    }
-  </script>
+
   <script>
     function resetSettings() {
       localStorage.clear();
@@ -72,6 +76,36 @@
 
       alert("All settings have been reset.");
       window.location.reload();
+    }
+
+    function loadSe() {
+      const se = localStorage.getItem("search-eng");
+      const dropdown = document.getElementById("searchenddrop");
+      dropdown.value = se;
+    }
+    loadSe();
+    async function setSe() {
+      const newSe = document.getElementById("searchenddrop").value;
+      console.log(
+        `%c[ %cStarlight%c ] %cSet search engine to ${newSe}`,
+        "font-weight: bold; color: white; font-size: 20px;",
+        "font-weight: bold; color: black; font-size: 20px;",
+        "font-weight: normal; font-size: 20px;",
+        "font-weight: normal; font-size: 20px;"
+      );
+      localStorage.setItem("search-eng", newSe);
+    }
+    function toggleParticles() {
+      const particles = localStorage.getItem("particles");
+      if (particles === "true") {
+        localStorage.setItem("particles", "false");
+
+        location.reload();
+      } else {
+        localStorage.setItem("particles", "true");
+
+        location.reload();
+      }
     }
   </script>
 </div>
