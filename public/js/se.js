@@ -1,4 +1,4 @@
-if (window.location.pathname === "settings") {
+if (window.location.pathname === "/") {
   const se = localStorage.getItem("search-eng");
 
   const seinput = document.getElementById("uv-search-engine");
