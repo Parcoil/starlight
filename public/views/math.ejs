@@ -16,12 +16,10 @@
     fetch("/json/games.json")
       .then((response) => response.json())
       .then((games) => {
-        // Function to render games based on current search input
         const renderGames = (filter = "") => {
-          gamesContainer.innerHTML = ""; // Clear current games
+          gamesContainer.innerHTML = "";
 
           games.forEach((game) => {
-            // Case-insensitive search by game name
             if (game.name.toLowerCase().includes(filter.toLowerCase())) {
               const gameDiv = document.createElement("div");
               gameDiv.classList.add("game");
@@ -34,9 +32,8 @@
               gameImage.alt = game.name;
               gameImage.title = game.name;
 
-              // Add event listener to redirect to game URL on image click
               gameDiv.addEventListener("click", () => {
-                window.location.href = `/view?star=${game.url}`; // Redirect to game URL
+                window.location.href = `/view?star=${game.url}`;
               });
 
               gameDiv.appendChild(gameImage);
@@ -52,10 +49,8 @@
           }
         };
 
-        // Initial render of games
         renderGames();
 
-        // Event listener for real-time search
         searchBar.addEventListener("input", () => {
           renderGames(searchBar.value.trim());
         });

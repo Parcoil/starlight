@@ -4,9 +4,7 @@
   <input type="text" id="search-bar" placeholder="Search apps..." />
 </div>
 
-<div id="apps-container" class="apps-container">
-  <!-- Apps will be loaded here by JavaScript -->
-</div>
+<div id="apps-container" class="apps-container"></div>
 <script>
   const server = localStorage.getItem("serverurl");
 
@@ -17,12 +15,10 @@
     fetch("/json/apps.json")
       .then((response) => response.json())
       .then((apps) => {
-        // Function to render apps based on current search input
         const renderApps = (filter = "") => {
-          appsContainer.innerHTML = ""; // Clear current apps
+          appsContainer.innerHTML = "";
 
           apps.forEach((app) => {
-            // Case-insensitive search by app name
             if (app.name.toLowerCase().includes(filter.toLowerCase())) {
               const appDiv = document.createElement("div");
               appDiv.classList.add("app");
@@ -37,7 +33,6 @@
               appImage.setAttribute("data-url", app.url);
               appImage.setAttribute("data-name", app.name);
 
-              // Add event listener to handle click on app image
               appImage.addEventListener("click", (e) => {
                 const appUrl = e.target.getAttribute("data-url");
                 const appName = e.target.getAttribute("data-name");
@@ -46,7 +41,7 @@
                   window.__uv$config.encodeUrl(appUrl);
                 sessionStorage.setItem("lpurl", lpUrl);
                 sessionStorage.setItem("rawurl", `starlight://${appName}`);
-                window.location.href = "/./go/"; // Redirect to go page
+                window.location.href = "/./go/";
               });
 
               appDiv.appendChild(appImage);
@@ -62,10 +57,8 @@
           }
         };
 
-        // Initial render of apps
         renderApps();
 
-        // Event listener for real-time search
         searchBar.addEventListener("input", () => {
           renderApps(searchBar.value.trim());
         });

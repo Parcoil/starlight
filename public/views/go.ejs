@@ -44,10 +44,21 @@
         var lp = document.getElementById("lp");
         lp.requestFullscreen();
       }
+
+      var devTools = false;
+
       function inspect() {
         eruda.init();
-        eruda.show();
+
+        if (devTools === true) {
+          eruda.hide();
+          devTools = false;
+        } else if (devTools === false) {
+          eruda.show();
+          devTools = true;
+        }
       }
+
       function reload() {
         window.location.reload();
       }
@@ -58,11 +69,30 @@
         }
       }
 
-      function forward() {
+      function goforward() {
         var lp = document.getElementById("lp");
         if (lp.contentWindow.history.length > 0) {
           lp.contentWindow.history.forward();
         }
+      }
+
+      function createpxBlank() {
+        var url = sessionStorage.getItem("lpurl");
+        win = window.open();
+        win.document.body.style.margin = "0";
+        win.document.body.style.height = "100vh";
+        var iframe = win.document.createElement("iframe");
+        iframe.style.border = "none";
+        iframe.style.width = "100%";
+        iframe.style.height = "100%";
+        iframe.style.margin = "0";
+        iframe.referrerpolicy = "no-referrer";
+        iframe.allow = "fullscreen";
+        iframe.src = window.location.origin + url;
+        win.document.body.appendChild(iframe);
+        window.location.href =
+          "https://www.google.com/search?q=what+day+is+today";
+        console.log(window.location.origin + url);
       }
     </script>
     <script src="//cdn.jsdelivr.net/npm/eruda"></script>
@@ -95,22 +125,27 @@
         type="hidden"
       />
       <div class="lpbuttons">
-        <button onclick="back()" class="lpbutton" title="Fullscreens the page">
+        <button onclick="back()" class="lpbutton" title="Goes Back">
           <i class="fa-solid fa-arrow-left"></i>
         </button>
-        <button
-          onclick="foward()"
-          class="lpbutton"
-          title="Opens inspect element"
-        >
+        <button onclick="goforward()" class="lpbutton" title="Goes forward">
           <i class="fa-solid fa-arrow-right"></i>
         </button>
         <button
           onclick="window.location.href = '/./' "
           class="lpbutton"
-          title="Reloads the page"
+          title="Goes to the home page"
         >
           <i class="fa-solid fa-house"></i>
+        </button>
+      </div>
+      <div class="lpbuttons lpright">
+        <button
+          onclick="createpxBlank()"
+          class="lpbutton"
+          title="Opens in a about:blank page"
+        >
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
         </button>
       </div>
     </div>

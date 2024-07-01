@@ -90,7 +90,7 @@ input {
 
   font-weight: 600;
   width: 500px;
-  transition: transform 0.5s ease-in-out;
+  transition: 0.5s;
 }
 .devs {
   display: flex;
@@ -240,6 +240,9 @@ a {
   transition: 0.35s ease;
   z-index: 10;
   border-radius: 15px;
+  animation: appear linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 10%;
 }
 .game:hover,
 .app:hover {
@@ -317,4 +320,29 @@ button[type="submit"] {
   right: 0;
   margin-right: 20px;
   font-weight: 600;
+}
+@keyframes appear {
+  from {
+    opacity: 0;
+    clip-path: inset(100% 100% 0 0);
+  }
+  to {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+  }
+}
+@media only screen and (max-width: 642px) {
+  #current-time {
+    display: none;
+  }
+  .nav a {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.lpright {
+  position: fixed;
+  right: 0;
 }

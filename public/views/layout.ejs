@@ -32,7 +32,9 @@
       <a href="/math"><i class="fa-solid fa-gamepad">&nbsp;</i>Games</a>
       <a href="/stars"><i class="fa-solid fa-grid-2">&nbsp;</i>Apps</a>
       <a href="/settings"><i class="fa-solid fa-gear">&nbsp;</i>Settings</a>
-      <a href="/more"><i class="fa-solid fa-circle-ellipsis">&nbsp;</i>More</a>
+      <a href="/more"
+        ><i class="fa-solid fa-circle-ellipsis">&nbsp;</i>Credits</a
+      >
       <span id="current-time"></span>
     </div>
     <div id="particles-js"></div>
@@ -42,7 +44,6 @@
         const activePage = window.location.pathname;
         const navLinks = document.querySelectorAll(".nav a");
 
-        // Function to set active link
         function setActiveLink() {
           navLinks.forEach((link) => {
             const linkPath = link.getAttribute("href");
@@ -58,10 +59,8 @@
           });
         }
 
-        // Initial call to set active link
         setActiveLink();
 
-        // Event listener for hash changes (for single page applications)
         window.addEventListener("hashchange", setActiveLink);
       });
     </script>
