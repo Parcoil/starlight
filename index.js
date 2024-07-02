@@ -1,6 +1,6 @@
 import { createBareServer } from "@tomphttp/bare-server-node";
 import { createServer } from "node:http";
-import { join, dirname } from "node:path";
+import { join } from "node:path";
 import { hostname } from "node:os";
 import express from "express";
 import path from "path";

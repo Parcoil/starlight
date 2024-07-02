@@ -5,12 +5,15 @@
   "type": "module",
   "main": "index.js",
   "dependencies": {
-    "@titaniumnetwork-dev/ultraviolet": "*",
-    "@tomphttp/bare-server-node": "^2.0.1",
+    "@mercuryworkshop/bare-mux": "^1.1.0",
+    "@mercuryworkshop/epoxy-transport": "^1.1.0",
+    "@titaniumnetwork-dev/ultraviolet": "^3.1.2",
     "ejs": "^3.1.10",
     "express": "^4.18.2",
     "express-ejs-layouts": "^2.5.1",
-    "nodemon": "^3.0.2"
+    "nodemon": "^3.1.4",
+    "wisp-server-node": "^1.0.6",
+    "ws": "^8.16.0"
   },
   "scripts": {
     "start": "node index.js",

@@ -24,13 +24,13 @@ async function registerSW() {
     throw new Error("Your browser doesn't support service workers.");
   }
 
-  try {
-    const registration = await navigator.serviceWorker.register(stockSW, {
-      scope: "/stars/",
-    });
+  await navigator.serviceWorker.register(stockSW);
 
-    console.log("Service Worker registered:", registration);
-  } catch (error) {
-    console.error("Service Worker registration failed:", error);
-  }
+  // Register the EpoxyClient transport to be used for network requests
+  let wispUrl =
+    (location.protocol === "https:" ? "wss" : "ws") +
+    "://" +
+    location.host +
+    "/wisp/";
+  await BareMux.SetTransport("EpxMod.EpoxyClient", { wisp: wispUrl });
 }

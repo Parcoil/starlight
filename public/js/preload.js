@@ -3,6 +3,7 @@ function loadCSS(href, onload) {
   link.type = "text/css";
   link.rel = "stylesheet";
   link.href = href;
+  link.crossOrigin = "anonymous";
   link.onload = onload;
   document.head.appendChild(link);
 }
@@ -11,6 +12,7 @@ function loadScript(src, onload) {
   var script = document.createElement("script");
   script.type = "text/javascript";
   script.src = src;
+  script.crossOrigin = "anonymous";
   script.onload = onload;
   document.head.appendChild(script);
 }
