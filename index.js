@@ -3,7 +3,7 @@ import { createServer } from "node:http";
 
 import { uvPath } from "@titaniumnetwork-dev/ultraviolet";
 import { epoxyPath } from "@mercuryworkshop/epoxy-transport";
-import { baremuxPath } from "@mercuryworkshop/bare-mux";
+import { baremuxPath } from "@mercuryworkshop/bare-mux/node";
 import { join, dirname } from "node:path";
 import { hostname } from "node:os";
 import { fileURLToPath } from "url";

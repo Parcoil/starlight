@@ -5,7 +5,7 @@
   "type": "module",
   "main": "index.js",
   "dependencies": {
-    "@mercuryworkshop/bare-mux": "^1.1.0",
+    "@mercuryworkshop/bare-mux": "^1.1.2",
     "@mercuryworkshop/epoxy-transport": "^1.1.0",
     "@titaniumnetwork-dev/ultraviolet": "^3.1.2",
     "ejs": "^3.1.10",
