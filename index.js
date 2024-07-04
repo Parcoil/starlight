@@ -13,10 +13,9 @@ import expressLayouts from "express-ejs-layouts";
 const app = express();
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const publicPath = join(__dirname, "public");
-// Load our publicPath first and prioritize it over UV.
+
 app.use(express.static(publicPath));
-// Load vendor files last.
-// The vendor's uv.config.js won't conflict with our uv.config.js inside the publicPath directory.
+
 app.set("view engine", "ejs");
 app.set("views", join(__dirname, "public/views"));
 app.use(expressLayouts);
