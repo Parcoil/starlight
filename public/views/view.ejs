@@ -13,7 +13,7 @@
 <script>
   const urlParams = new URLSearchParams(window.location.search);
   const gameUrl = urlParams.get("star");
-  const server = localStorage.getItem("serverurl");
+  const server = "/cdn/";
 
   fetch("/json/games.json")
     .then((response) => response.json())
@@ -24,7 +24,7 @@
         gameNameElement.textContent = game.name;
 
         const gameFrame = document.getElementById("gameFrame");
-        gameFrame.src = `${server}/${gameUrl}/`;
+        gameFrame.src = `${server}${gameUrl}/`;
       } else {
         console.error("Game not found");
       }

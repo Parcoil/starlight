@@ -1,6 +1,6 @@
 {
   "name": "starlight",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Ending Internet censorship.",
   "type": "module",
   "main": "index.js",
@@ -11,6 +11,7 @@
     "ejs": "^3.1.10",
     "express": "^4.18.2",
     "express-ejs-layouts": "^2.5.1",
+    "http-proxy": "^1.18.1",
     "nodemon": "^3.1.4",
     "wisp-server-node": "^1.0.6",
     "ws": "^8.16.0"
@@ -31,6 +32,5 @@
   "bugs": {
     "url": "https://github.com/Parcoil/starlight/issues"
   },
-  "homepage": "https://github.com/Parcoil/starlight#readme",
-  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+  "homepage": "https://github.com/Parcoil/starlight#readme"
 }

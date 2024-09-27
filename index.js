@@ -1,6 +1,6 @@
 import express from "express";
 import { createServer } from "node:http";
-
+import httpProxy from "http-proxy";
 import { uvPath } from "@titaniumnetwork-dev/ultraviolet";
 import { epoxyPath } from "@mercuryworkshop/epoxy-transport";
 import { baremuxPath } from "@mercuryworkshop/bare-mux/node";
@@ -10,6 +10,7 @@ import { fileURLToPath } from "url";
 import wisp from "wisp-server-node";
 import expressLayouts from "express-ejs-layouts";
 
+const cdnProxy = httpProxy.createProxyServer();
 const app = express();
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const publicPath = join(__dirname, "public");
@@ -30,6 +31,13 @@ app.get("/", (req, res) => {
     } else {
       res.send(html);
     }
+  });
+});
+
+app.use("/cdn", (req, res) => {
+  cdnProxy.web(req, res, {
+    target: "https://glcdn.githack.com/Thedogecraft/assets/-/raw/main/public/",
+    changeOrigin: true,
   });
 });
 

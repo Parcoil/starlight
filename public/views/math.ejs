@@ -7,7 +7,7 @@
   <!-- Games will be loaded here by JavaScript -->
 </div>
 <script>
-  const server = localStorage.getItem("serverurl");
+  const server = "/cdn/";
 
   document.addEventListener("DOMContentLoaded", () => {
     const gamesContainer = document.getElementById("games-container");
@@ -28,7 +28,7 @@
               gameTitle.textContent = game.name;
 
               const gameImage = document.createElement("img");
-              gameImage.src = `${server}/${game.url}/${game.image}`;
+              gameImage.src = `${server}${game.url}/${game.image}`;
               gameImage.alt = game.name;
               gameImage.title = game.name;
 
